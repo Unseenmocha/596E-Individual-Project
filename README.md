@@ -4,11 +4,11 @@
 
 Follow these steps to set up the environment and run the project.
 
-### 1. Clone the Repository (if applicable)
-If the project is hosted on a repository, clone it using:
+### 1. Clone the Repository
+Clone the repo using:
 ```bash
-git clone <repository-url>
-cd <project-directory>
+git clone git@github.com:Unseenmocha/596E-Individual-Project.git
+cd 596E-Individual-Project
 ```
 
 ### 2. Install Dependencies

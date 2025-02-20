@@ -7,12 +7,13 @@ from flask_ml.flask_ml_server.models import (
     TextResponse,
     TaskSchema,
     InputSchema,
-    InputType
+    InputType,
 )
 
 from NER_onnx import NER_Processing
 
 import torch
+
 
 # Configure UI Elements in RescueBox Desktop
 def create_task_schema() -> TaskSchema:
@@ -21,16 +22,19 @@ def create_task_schema() -> TaskSchema:
         label="Input Text",
         input_type=InputType.TEXT,
         placeholder="Enter input text for NER",
-        multiline=True
+        multiline=True,
     )
-    
+
     return TaskSchema(inputs=[input_schema], parameters=[])
+
 
 class NERInput(TypedDict):
     text_input: TextInput
 
+
 class NERParameters(TypedDict):
     pass
+
 
 # Create a server instance
 server = MLServer(__name__)
