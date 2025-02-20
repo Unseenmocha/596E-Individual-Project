@@ -32,7 +32,7 @@ pip install flask-ml
 ```
 
 ### 3. Download Pretrained Model Files
-Download the original model files from [BERT-NER GitHub](https://github.com/kamalkraj/BERT-NER?tab=readme-ov-file) and place the extracted folder in the project directory. The structure should look like this:
+Download the original model files from [BERT-NER GitHub](https://github.com/kamalkraj/BERT-NER?tab=readme-ov-file) and place the file pytorch_model.bin out_base directory. The structure should look like this:
 ```
 /project-directory
     ├── NER.py
@@ -40,7 +40,16 @@ Download the original model files from [BERT-NER GitHub](https://github.com/kama
     ├── NER_onnx.py
     ├── server.py
     ├── requirements.txt
-    ├── <downloaded model folder>/
+    ├── out_base/
+        ├── added_tokens.json
+        ├── config.json
+        ├── eval_results.txt
+        ├── model_config.json
+        ├── special_tokens_map.json
+        ├── tokenizer_config.json
+        ├── vocab.txt
+        ├── pytorch_model.bin <-- added file
+
 ```
 
 ### 4. Generate ONNX Model
