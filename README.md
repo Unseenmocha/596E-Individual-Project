@@ -22,13 +22,13 @@ conda activate ner_env
 #### b) Install Conda Dependencies
 Install the required dependencies
 ```bash
-conda install -c conda-forge transformers==4.46.1 pytorch onnxruntime onnx
+conda install -c conda-forge transformers==4.46.1 pytorch onnxruntime onnx black
 ```
 
-#### c) Install FlaskML
+#### c) Install FlaskML 
 Install FlaskML
 ```bash
-pip install flask-ml
+pip install flask-ml 
 ```
 
 ### 3. Download Pretrained Model Files
@@ -64,4 +64,11 @@ python server.py
 
 The server should now be running and ready to process requests.
 
+### 7. Connect via RescueBox
+- Open rescuebox desktop
+- Register a Model with the IP and port the server is running on (defaults 127.0.0.1:5000)
+- Click run on the NER job
+- enter the input text to perform NER on
+- click Run Model
+- view the results from the Results tab on the left
 ---

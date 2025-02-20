@@ -4,19 +4,33 @@ from flask_ml.flask_ml_server import MLServer, load_file_as_string
 from flask_ml.flask_ml_server.models import (
     ResponseBody,
     TextInput,
-    TextResponse
+    TextResponse,
+    TaskSchema,
+    InputSchema,
+    InputType
 )
 
 from NER_onnx import NER_Processing
 
 import torch
 
+# Configure UI Elements in RescueBox Desktop
+def create_task_schema() -> TaskSchema:
+    input_schema = InputSchema(
+        key="text_input",
+        label="Input Text",
+        input_type=InputType.TEXT,
+        placeholder="Enter input text for NER",
+        multiline=True
+    )
+    
+    return TaskSchema(inputs=[input_schema], parameters=[])
 
-class NERCaseInput(TypedDict):
+class NERInput(TypedDict):
     text_input: TextInput
 
-class NERCaseParameters(TypedDict):
-    to_case: str
+class NERParameters(TypedDict):
+    pass
 
 # Create a server instance
 server = MLServer(__name__)
@@ -31,8 +45,8 @@ server.add_app_metadata(
 NER = NER_Processing()
 
 
-@server.route("/predict")
-def give_prediction(inputs: NERCaseInput, parameters: NERCaseParameters) -> ResponseBody:
+@server.route("/predict", task_schema_func=create_task_schema)
+def give_prediction(inputs: NERInput, parameters: NERParameters) -> ResponseBody:
     print(inputs)
     output = NER.predict(inputs["text_input"].text)
     return ResponseBody(root=TextResponse(value=output))
