@@ -32,7 +32,7 @@ pip install flask-ml
 ```
 
 ### 3. Download Pretrained Model Files
-Download the original model files from [BERT-NER GitHub](https://github.com/kamalkraj/BERT-NER?tab=readme-ov-file) and place the file pytorch_model.bin out_base directory. The structure should look like this:
+Download the original model files from [BERT-NER GitHub](https://github.com/kamalkraj/BERT-NER?tab=readme-ov-file) and place the file `pytorch_model.bin` out_base directory. The structure should look like this:
 ```
 /project-directory
     ├── NER.py
@@ -57,7 +57,7 @@ Run the following command to create the ONNX model:
 ```bash
 python NER.py
 ```
-Make sure `NER.onnx` is present in the project directory.
+Make sure `NER.onnx` is present in the project directory. The model is loaded in using Huggingface transformers AutoModelForTokenClassification.from_pretrained, and is exported to onnx using torch.onnx.export the code for exporting is in `NER.onnx`
 
 ### 5. Run Command Line Interface
 To use the command-line interface for NER, run:
