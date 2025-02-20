@@ -20,9 +20,15 @@ conda activate ner_env
 ```
 
 #### b) Install Conda Dependencies
-Install the required dependencies from `requirements.txt`:
+Install the required dependencies
 ```bash
-conda install --file requirements.txt
+conda install -c conda-forge transformers==4.46.1 pytorch onnxruntime onnx
+```
+
+#### c) Install FlaskML
+Install FlaskML
+```bash
+pip install flask-ml
 ```
 
 ### 3. Download Pretrained Model Files
@@ -42,7 +48,7 @@ Run the following command to create the ONNX model:
 ```bash
 python NER.py
 ```
-Make sure `NER_onnx.py` is present in the project directory.
+Make sure `NER.onnx` is present in the project directory.
 
 ### 5. Run Command Line Interface
 To use the command-line interface for NER, run:
